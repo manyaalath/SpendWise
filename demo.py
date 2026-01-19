@@ -4,7 +4,7 @@ This script demonstrates the complete workflow with sample data.
 """
 
 print("\n" + "=" * 70)
-print(" 💰 EXPENSE AGENT - COMPLETE DEMO")
+print(" EXPENSE AGENT - COMPLETE DEMO")
 print("=" * 70)
 print("\nThis demo shows all features of the expense tracking system.\n")
 
@@ -25,42 +25,42 @@ from logic.limit_checker import check_limit, get_daily_limit
 from logic.streak_manager import check_and_update_streak
 
 # Simulate receiving SMS
-print("\n📱 Simulating incoming SMS...")
+print("\nSimulating incoming SMS...")
 sms = get_latest_sms()
 print(f"   SMS Received: \"{sms}\"")
 
 # Parse the amount
-print("\n🔍 Parsing expense amount...")
+print("\nParsing expense amount...")
 amount = parse_expense_amount(sms)
 if amount:
-    print(f"   ✓ Detected expense: ₹{amount}")
+    print(f"   Detected expense: ₹{amount}")
 else:
-    print("   ✗ No expense detected")
+    print("   No expense detected")
     exit()
 
 # Store the expense
-print("\n💾 Storing expense in database...")
+print("\nStoring expense in database...")
 add_expense(amount)
-print(f"   ✓ Expense of ₹{amount} saved to expenses.json")
+print(f"   Expense of ₹{amount} saved to expenses.json")
 
 # Calculate daily total
-print("\n📊 Calculating daily total...")
+print("\nCalculating daily total...")
 daily_total = get_today_total()
 daily_limit = get_daily_limit()
 print(f"   Daily spending: ₹{daily_total} / ₹{daily_limit}")
 
 # Check limit
-print("\n⚠️  Checking spending limits...")
+print("\nChecking spending limits...")
 limit_status = check_limit(daily_total)
 if limit_status['exceeded']:
-    print(f"   🚨 EXCEEDED! You're at {limit_status['percentage']}% of limit")
+    print(f"   EXCEEDED! You're at {limit_status['percentage']}% of limit")
 elif limit_status['warning']:
-    print(f"   ⚠️  WARNING! You're at {limit_status['percentage']}% of limit")
+    print(f"   WARNING! You're at {limit_status['percentage']}% of limit")
 else:
-    print(f"   ✓ Within budget ({limit_status['percentage']}% used)")
+    print(f"   Within budget ({limit_status['percentage']}% used)")
 
 # Update streak
-print("\n🔥 Updating spending streak...")
+print("\nUpdating spending streak...")
 streak_result = check_and_update_streak()
 print(f"   Current streak: {streak_result['current_streak']} days")
 print(f"   Best streak: {streak_result['best_streak']} days")
@@ -83,13 +83,13 @@ sample_expenses = [
 print("\nAdding 3 more expenses to test the limit warning system...\n")
 
 for sms_text, expected_amount in sample_expenses:
-    print(f"📱 SMS: \"{sms_text}\"")
+    print(f"SMS: \"{sms_text}\"")
     amount = parse_expense_amount(sms_text)
     if amount:
         add_expense(amount)
-        print(f"   ✓ Added ₹{amount}")
+        print(f"   Added ₹{amount}")
     else:
-        print(f"   ✗ Failed to parse")
+        print(f"   Failed to parse")
     print()
 
 input("Press Enter to view summary...")
@@ -107,7 +107,7 @@ summary = get_today_summary()
 daily_total = summary['total']
 daily_limit = get_daily_limit()
 
-print("\n📈 DAILY SUMMARY")
+print("\nDAILY SUMMARY")
 print("-" * 70)
 print(f"Number of expenses:  {summary['count']}")
 print(f"Individual amounts:  {summary['expenses']}")
@@ -118,13 +118,13 @@ print("-" * 70)
 
 # Check if we're near or over limit
 limit_status = check_limit(daily_total)
-print(f"\n💡 Status: ", end="")
+print(f"\nStatus: ", end="")
 if limit_status['exceeded']:
-    print(f"⚠️  OVER LIMIT by ₹{daily_total - daily_limit}!")
+    print(f"OVER LIMIT by ₹{daily_total - daily_limit}!")
 elif limit_status['warning']:
-    print(f"⚠️  Near limit ({limit_status['percentage']}% used)")
+    print(f"Near limit ({limit_status['percentage']}% used)")
 else:
-    print(f"✓ Good! Only {limit_status['percentage']}% of budget used")
+    print(f"Good! Only {limit_status['percentage']}% of budget used")
 
 input("\n\nPress Enter to continue...")
 
@@ -140,17 +140,17 @@ from logic.streak_manager import get_current_streak, get_best_streak
 current = get_current_streak()
 best = get_best_streak()
 
-print("\n🔥 STREAK INFORMATION")
+print("\nSTREAK INFORMATION")
 print("-" * 70)
 print(f"Current streak:  {current} days")
 print(f"Best streak:     {best} days")
 print("-" * 70)
 
 if daily_total > daily_limit:
-    print("\n⚠️  Your streak will break today because you exceeded the limit!")
+    print("\nYour streak will break today because you exceeded the limit!")
     print("   Try to stay under ₹500 tomorrow to start a new streak.")
 else:
-    print(f"\n✓ Great job! Keep spending under ₹{daily_limit} to maintain your streak!")
+    print(f"\nGreat job! Keep spending under ₹{daily_limit} to maintain your streak!")
 
 input("\n\nPress Enter to continue...")
 
@@ -171,7 +171,7 @@ new_limit = 800
 print(f"Setting new limit to: ₹{new_limit}")
 
 set_daily_limit(new_limit)
-print(f"✓ Daily limit updated!")
+print(f"Daily limit updated!")
 
 # Re-check status with new limit
 print(f"\nRechecking with new limit...")
@@ -180,9 +180,9 @@ print(f"Total: ₹{daily_total} / ₹{new_limit}")
 print(f"Usage: {limit_status['percentage']}%")
 print(f"Status: ", end="")
 if limit_status['warning']:
-    print("⚠️  Near limit")
+    print("Near limit")
 else:
-    print("✓ Within budget")
+    print("Within budget")
 
 input("\n\nPress Enter to continue...")
 
@@ -206,7 +206,7 @@ expenses_file = os.path.join(data_dir, 'expenses.json')
 if os.path.exists(expenses_file):
     with open(expenses_file, 'r') as f:
         expenses_data = json.load(f)
-    print("📄 expenses.json:")
+    print("expenses.json:")
     print(json.dumps(expenses_data, indent=2))
 
 # Show config.json
@@ -214,7 +214,7 @@ config_file = os.path.join(data_dir, 'config.json')
 if os.path.exists(config_file):
     with open(config_file, 'r') as f:
         config_data = json.load(f)
-    print("\n📄 config.json:")
+    print("\nconfig.json:")
     print(json.dumps(config_data, indent=2))
 
 # Show streak.json
@@ -222,26 +222,26 @@ streak_file = os.path.join(data_dir, 'streak.json')
 if os.path.exists(streak_file):
     with open(streak_file, 'r') as f:
         streak_data = json.load(f)
-    print("\n📄 streak.json:")
+    print("\nstreak.json:")
     print(json.dumps(streak_data, indent=2))
 
 # ============================================================================
 # FINAL SUMMARY
 # ============================================================================
 print("\n" + "=" * 70)
-print(" ✓ DEMO COMPLETE!")
+print(" DEMO COMPLETE!")
 print("=" * 70)
 
 print("""
 What you just saw:
 
-✓ SMS parsing from multiple formats (₹, Rs., INR)
-✓ Automatic expense storage in JSON files
-✓ Daily spending calculations
-✓ Limit warnings at 80% threshold
-✓ Spending streak tracking
-✓ Configurable daily limits
-✓ Persistent data storage
+SMS parsing from multiple formats (₹, Rs., INR)
+Automatic expense storage in JSON files
+Daily spending calculations
+Limit warnings at 80% threshold
+Spending streak tracking
+Configurable daily limits
+Persistent data storage
 
 All features are working perfectly!
 
@@ -251,7 +251,7 @@ To use the interactive menu:
 To run automated tests:
     python test_system.py
 
-Thank you for watching the demo! 🚀
+Thank you for watching the demo!
 """)
 
 print("=" * 70 + "\n")

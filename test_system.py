@@ -17,7 +17,7 @@ amount = parse_expense_amount(test_sms)
 print(f"SMS: {test_sms}")
 print(f"Parsed amount: ₹{amount}")
 assert amount == 299, "Parser test failed!"
-print("✓ PASSED")
+print("PASSED")
 
 # Test 2: Expense Store
 print("\n[TEST 2] Expense Store")
@@ -31,7 +31,7 @@ print("Added expense: ₹299")
 expenses = get_today_expenses()
 print(f"Today's expenses: {expenses}")
 assert 299 in expenses, "Expense not found!"
-print("✓ PASSED")
+print("PASSED")
 
 # Test 3: Daily Tracker
 print("\n[TEST 3] Daily Tracker")
@@ -44,7 +44,7 @@ assert total >= 299, "Total calculation error!"
 
 summary = get_today_summary()
 print(f"Summary: {summary['count']} expenses totaling ₹{summary['total']}")
-print("✓ PASSED")
+print("PASSED")
 
 # Test 4: Limit Checker
 print("\n[TEST 4] Limit Checker")
@@ -58,7 +58,7 @@ result = check_limit(total)
 print(f"Warning: {result['warning']}")
 print(f"Exceeded: {result['exceeded']}")
 print(f"Usage: {result['percentage']}%")
-print("✓ PASSED")
+print("PASSED")
 
 # Test 5: Streak Manager
 print("\n[TEST 5] Streak Manager")
@@ -69,7 +69,7 @@ streak_result = check_and_update_streak()
 print(f"Current streak: {streak_result['current_streak']} days")
 print(f"Best streak: {streak_result['best_streak']} days")
 print(f"Streak broken: {streak_result['streak_broken']}")
-print("✓ PASSED")
+print("PASSED")
 
 # Test 6: Mobile Actions (stub)
 print("\n[TEST 6] Mobile Actions (Stub)")
@@ -80,11 +80,11 @@ sms = get_latest_sms()
 print(f"Sample SMS: {sms}")
 assert sms is not None, "SMS stub failed!"
 send_notification("Test", "This is a test notification")
-print("✓ PASSED")
+print("PASSED")
 
 # Final Summary
 print("\n" + "=" * 60)
-print("ALL TESTS PASSED! ✓")
+print("ALL TESTS PASSED!")
 print("=" * 60)
 print("\nThe expense agent system is working correctly!")
 print("Run 'python main.py' to use the interactive menu.\n")

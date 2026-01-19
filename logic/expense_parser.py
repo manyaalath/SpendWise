@@ -77,7 +77,7 @@ def _test_parser():
     print("Testing expense parser...")
     for text, expected in test_cases:
         result = parse_expense_amount(text)
-        status = "✓" if result == expected else "✗"
+        status = "PASSED" if result == expected else "FAILED"
         print(f"{status} Input: '{text}' -> Expected: {expected}, Got: {result}")
 
 

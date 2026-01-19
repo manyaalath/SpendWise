@@ -165,7 +165,7 @@ if __name__ == "__main__":
     print("Testing limit checker...")
     
     limit = get_daily_limit()
-    print(f"✓ Daily limit: ₹{limit}")
+    print(f"Daily limit: ₹{limit}")
     
     # Test with different amounts
     test_amounts = [100, 400, 450, 600]

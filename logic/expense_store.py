@@ -142,8 +142,8 @@ if __name__ == "__main__":
     
     # Test adding expense
     if add_expense(100):
-        print("✓ Added test expense: 100")
+        print("Added test expense: 100")
     
     # Test reading today's expenses
     today_expenses = get_today_expenses()
-    print(f"✓ Today's expenses: {today_expenses}")
+    print(f"Today's expenses: {today_expenses}")

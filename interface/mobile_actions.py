@@ -55,7 +55,7 @@ def send_notification(title, message):
         message (str): Notification message
     """
     # For now, just print to console
-    print(f"\n📱 NOTIFICATION")
+    print(f"\nNOTIFICATION")
     print(f"   Title: {title}")
     print(f"   Message: {message}")
     print()
@@ -103,12 +103,12 @@ if __name__ == "__main__":
     print("Testing mobile actions (STUB)...")
     
     sms = get_latest_sms()
-    print(f"✓ Sample SMS: {sms}")
+    print(f"Sample SMS: {sms}")
     
     send_notification("Test", "This is a test notification")
     
     battery = get_phone_battery()
-    print(f"✓ Battery: {battery}%")
+    print(f"Battery: {battery}%")
     
     screen = is_screen_on()
-    print(f"✓ Screen on: {screen}")
+    print(f"Screen on: {screen}")

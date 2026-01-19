@@ -82,6 +82,6 @@ if __name__ == "__main__":
     print("Testing daily tracker...")
     
     summary = get_today_summary()
-    print(f"✓ Today's total: ₹{summary['total']}")
-    print(f"✓ Number of expenses: {summary['count']}")
-    print(f"✓ Expenses: {summary['expenses']}")
+    print(f"Today's total: ₹{summary['total']}")
+    print(f"Number of expenses: {summary['count']}")
+    print(f"Expenses: {summary['expenses']}")

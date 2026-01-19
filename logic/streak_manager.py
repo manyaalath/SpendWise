@@ -194,8 +194,8 @@ if __name__ == "__main__":
     current = get_current_streak()
     best = get_best_streak()
     
-    print(f"✓ Current streak: {current} days")
-    print(f"✓ Best streak: {best} days")
+    print(f"Current streak: {current} days")
+    print(f"Best streak: {best} days")
     
     # Test updating streak (under limit)
     print("\nTesting streak update (under limit)...")
