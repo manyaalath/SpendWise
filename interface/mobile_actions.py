@@ -8,36 +8,38 @@ using Droidrun or similar mobile automation tools.
 """
 
 import random
-from droidrun.device import AndroidDevice
+# from droidrun.device import AndroidDevice
 
 
 
 def get_latest_sms():
-    # """
-    # Get the latest SMS message (STUB).
+    """
+    Get the latest SMS message (STUB).
     
-    # In production: This will read actual SMS from the phone.
-    # For now: Returns a sample bank SMS for testing.
+    In production: This will read actual SMS from the phone.
+    For now: Returns a sample bank SMS for testing.
     
-    # Returns:
-    #     str: SMS text content
-    # """
-    # # Sample SMS messages for testing
-    # sample_messages = [
-    #     "₹299 debited from your account ending 1234 for Amazon purchase. Available balance: ₹5000",
-    #     "Rs.120 spent via UPI to Zomato. Transaction ID: 123456789",
-    #     "Rs 150 spent at Flipkart using card ending 5678",
-    #     "INR 200 paid to Uber. Thank you for using our service",
-    #     "₹75 debited for Spotify subscription",
-    # ]
+    Returns:
+        str: SMS text content
+    """
+    # Sample SMS messages for testing
+    sample_messages = [
+        "₹299 debited from your account ending 1234 for Amazon purchase. Available balance: ₹5000",
+        "Rs.120 spent via UPI to Zomato. Transaction ID: 123456789",
+        "Rs 150 spent at Flipkart using card ending 5678",
+        "INR 200 paid to Uber. Thank you for using our service",
+        "₹75 debited for Spotify subscription",
+    ]
     
-    # # Return a random sample SMS
-    # return random.choice(sample_messages)
-    device = AndroidDevice()
-    device.open_app("Messages")
-    device.tap_first_element()
-    message_text = device.read_last_text()
-    return message_text
+    # Return a random sample SMS
+    return random.choice(sample_messages)
+
+    # Future implementation using Droidrun
+    # device = AndroidDevice()
+    # device.open_app("Messages")
+    # device.tap_first_element()
+    # message_text = device.read_last_text()
+    # return message_text
 
 
 
