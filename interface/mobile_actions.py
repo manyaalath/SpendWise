@@ -8,8 +8,8 @@ using Droidrun or similar mobile automation tools.
 """
 
 import random
-from droidrun import DroidAgent
-agent = DroidAgent()
+from droidrun.device import AndroidDevice
+
 
 
 def get_latest_sms():
@@ -33,9 +33,10 @@ def get_latest_sms():
     
     # # Return a random sample SMS
     # return random.choice(sample_messages)
-    agent.open_app("Messages")
-    agent.tap_first_element()
-    message_text = agent.read_last_text()
+    device = AndroidDevice()
+    device.open_app("Messages")
+    device.tap_first_element()
+    message_text = device.read_last_text()
     return message_text
 
 
